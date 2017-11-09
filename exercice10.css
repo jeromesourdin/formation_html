@@ -1,0 +1,31 @@
+/* Commentaire CSS */
+
+#gris
+{
+	background-color: grey;
+	height: 5000px;
+}
+
+.droite
+{
+	float: right;
+}
+
+body
+{
+	margin: 0px 0px 0px 0px;
+}
+
+#cookies
+{
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	background-color: #fff1ae;
+	width: 660px;
+}
+
+p 
+{
+	margin-top: 0px; 
+}

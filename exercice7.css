@@ -1,0 +1,54 @@
+/* Commentaire CSS */
+h1 
+{
+	color: red;
+	text-align: center;
+}
+
+#premiersoustitre 
+{
+	color: blue;
+}
+
+.dernierp 
+{
+	font-size: 10px;
+}
+
+.orange 
+{
+	color: orange;
+}
+
+.grey 
+{
+	color: grey;
+}
+
+a
+{
+	color: #046D8B;
+	text-decoration:none; 
+	font-family: arial;
+}
+
+a:hover 
+{
+	color: white;
+	background-color: #046D8B;
+}
+
+a:active 
+{
+	font-weight: bold;
+}
+
+h2, p 
+{
+	border: 1px dashed black;
+}
+
+a, em 
+{
+	border: 2px solid red;
+}

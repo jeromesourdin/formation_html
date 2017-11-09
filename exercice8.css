@@ -1,0 +1,37 @@
+/* Commentaire CSS */
+
+#bleu
+{
+	background-color: blue;
+	height: 50px
+}
+
+#rouge
+{
+	background-color: red;
+}
+
+#vert
+{
+	background-color: green;
+	border-style: groove;
+	border-color: yellow;
+	border-width: 10px;
+}
+
+#orange
+{
+	background-color: orange;
+	padding: 10px 20px 30px 40px;
+	margin: 0px 0px 0px 0px;
+}
+
+#rose
+{
+	background-color: pink;
+}
+
+body
+{
+	margin: 0px 0px 0px 0px;
+}
