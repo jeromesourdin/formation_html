@@ -1,0 +1,76 @@
+﻿<html>
+    
+    <head>
+        <title> En tête de ma page </title>
+        <style type="text/css">
+            #gauche
+            {
+                background-color: red;
+                width: 300px;
+                margin: 10px;
+            }
+            #droite
+            {
+                background-color: yellow;
+                width: 300px;
+                margin: 10px;
+            }
+            #grp
+            {
+                display: inline-flex;
+                width: 620px;
+                border-radius: 10px;
+                background-color: silver;
+            }
+
+            #grp:hover
+            {
+                transition: background-color 2s ease, width 2s ease;
+                background-color:black;
+                width: 300px;
+
+            }
+            @media screen and (max-width: 640px)
+            {
+                #gauche
+                {
+                    background-color: cyan;
+                    width: 100px;
+                }
+                #droite
+                {
+                    background-color: orange;
+                    width: 100px;
+                }
+            }
+            @media screen and (max-width: 400px)
+            {
+                #gauche
+                {
+                    background-color: yellow;
+                    width: 50px;
+                }
+                #droite
+                {
+                    background-color: red;
+                    width: 50px;
+                }
+                #grp
+                {
+                    display: block;
+                }
+            }
+        </style>
+    </head>
+    <!-- Commentaire JSO -->
+
+  
+    <body>
+        <!-- ... -->
+        <h1>Media Queries</h1>
+        <div id="grp">
+            <div id="gauche">&nbsp;</div>
+            <div id="droite">&nbsp;</div>
+        </div>
+    </body>
+</html>
