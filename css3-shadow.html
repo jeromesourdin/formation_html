@@ -1,0 +1,47 @@
+<html>
+	<head>
+		<title>CSS3 - Nouveautés</title>
+		<meta charset="utf-8" />
+	</head>
+
+    <style>
+        h1
+        {
+            text-align: center;
+            padding: 5px;
+            border: 2px dashed grey;
+            width: 600px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        div
+        {
+            background-color: black;
+            text-align: center;
+            margin: auto;
+            height: 100px;
+            width: 500px;
+            display: flex; /* contexte sur le parent */
+            flex-direction: column; /* direction d'affichage verticale */
+            justify-content: center;
+        }
+
+        p
+        {
+            font-family: arial;
+            font-size: 2em;
+            color: #fff;
+            /*text-shadow: 1px -4px 4px #dec225, 1px -6px 3px #7a3f07, 1px -9px 3px #702300, 1px -10px 3px #591300, 1px -11px 3px #350600;*/
+            text-shadow: 0 0 4px white, 0 -5px 4px #FF3, 2px -10px 6px #FD3, -2px -15px 11px #F80, 2px -25px 18px #F20;
+        }
+        
+    </style>
+	
+	<body>
+        <h1>Shadow</h1>
+        <div>
+            <p>Multiple shadows are Hot</p>
+        </div>
+	</body>
+</html>
