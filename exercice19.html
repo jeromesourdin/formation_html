@@ -7,11 +7,20 @@
             table
             {
                 margin-left: 100px;
-
-                /* Solution 1*/
-
-                /* Solution 2*/
             }
+            #tableauCSS3 tr:last-child
+            {
+                font-weight: bold;
+            }
+            #tableauCSS3 tr:nth-child(2n)
+            {
+                color:red;
+            }
+            #tableauCSS3 tr:nth-child(2n+1)
+            {
+                color:bleu;
+            }
+
         </style>
     </head>
     <!-- Commentaire JSO -->
@@ -20,7 +29,7 @@
     <body>
         <!-- ... -->
         <h1>CSS3</h1>
-        <table>
+        <table id="tableauCSS3">
             <tr>
                 <td>col1</td>
                 <td>col2</td>
