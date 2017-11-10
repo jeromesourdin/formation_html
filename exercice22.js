@@ -38,8 +38,23 @@ switch (client.type)
 }
 
 var i=0;
-while(i < 10)
+while(i < 2)
 {
 	console.log("i = "+i);
 	i++;
 }
+
+var j=0;
+j++;
+console.log("j = "+j);
+j--;
+console.log("j = "+j);
+console.log(j++);
+console.log(j);
+j+=2;
+console.log("j="+j);
+j-=5;
+console.log("j="+j);
+j*=10
+console.log("j="+j);
+console.log(++j);
