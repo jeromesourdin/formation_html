@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title> En tête de ma page </title>
+        <!--<script type="text/javascript" src="exercice31.js"></script>-->
+    </head>
+    <!-- Commentaire JSO -->
+
+  
+    <body>
+        <!-- ... -->
+        <h1>WebStorage</h1>
+
+        <p id="visite">&nbsp;</p>
+
+        <script type="text/javascript">
+            if (typeof(localStorage)!= null) 
+            {
+                console.log(localStorage["utilisateurCourant"]);
+                localStorage["utilisateurCourant"] = "jerome";
+                console.log(localStorage["utilisateurCourant"]);
+            }
+            else
+            {
+                console.log("localStorage non supporté");
+            }
+
+            var visite = 0;
+           if (localStorage["compteurVisite"] != null)
+            {
+               visite = localStorage["compteurVisite"];
+            }
+            localStorage["compteurVisite"] = ++visite;
+            console.log(localStorage["compteurVisite"]);
+
+            var texte =  document.querySelector("#visite");
+            console.log(texte);
+
+            texte.innerHTML = 'Vous avez visité ' + localStorage["compteurVisite"] + " fois notre site";
+//            delete localStorage["compteurVisite"] ;
+//            console.log(localStorage["compteurVisite"]);
+
+        </script>
+    </body>
+
+</html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
     
     <head>
@@ -10,26 +10,21 @@
   
     <body>
         <!-- ... -->
-        <h1>JS Canvas Géolocalisation</h1>
-        <canvas id="canvas" width="1000px" height="1000px"></canvas>
+        <h1>JS  Géolocalisation</h1>
 
         <script type="text/javascript">
-            //récupératon de l'élément canvas
-            var canvas = document.getElementById("canvas");
-            var context = canvas.getContext("2d");
-
-            // création d'une image JS
-            var monImage = new Image();
-            monImage.src = "../images/salar.jpg";
-
-            monImage.onload = function() 
+            function showPosition(position)
             {
-                for (var x = 0, y = 0; x < 500 && y < 375; x+=50, y+=37) {
-                    context.drawImage(monImage, x, y, 100,100);
-                }
-                
+                console.log(position.coords.latitude);
+                console.log(position.coords.longitude);
+                console.log(position.coords.altitude);
+                console.log(position.coords.accuracy);
+                console.log(position.coords.altitudeAccuracy);
+                console.log(position.coords.heading);
+                console.log(position.coords.speed);
+                console.log(timestamp);
             }
-
+            navigator.geolocation.getCurrentPosition(showPosition)
         </script>
     </body>
 
