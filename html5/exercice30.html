@@ -1,35 +1,29 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
     
     <head>
         <title> En tête de ma page </title>
-        <style type="text/css">
-            #bouton 
-            {
-                border-radius: 10px;
-                border-color: orange;
-            }
-            .hidden { display: none; }
-        </style>
+        <script type="text/javascript" src="exercice30.js"></script>
     </head>
     <!-- Commentaire JSO -->
 
   
     <body>
         <!-- ... -->
-        <h1>Event</h1>
-        <p id="p1"><span>coucou </span> coucou p1</p>
-        <p id="p2" class="pair">coucou p2</p>
-        <p id="p3">coucou p3</p>
-        <p id="p4" class="pair">coucou p4</p>
-        <p id="p5">coucou p5</p>
-        <button id="bouton">Bouton</button>
-        <br/>
-        <img 
-            src="images/salar.jpg" 
-            alt="Salar" 
-        />
+        <h1>JS Canvas</h1>
+        <canvas id="canvas" width="300px" height="300px"></canvas>
+
+        <script type="text/javascript">
+            //récupératon de l'élément canvas
+            var canvas = document.getElementById("canvas");
+            var context = canvas.getContext("2d");
+
+            //dessine un rectangle
+            context.fillRect(50,25,150,100);
+
+            context.strokeStyle = "rgb(225,125,0)";
+            context.strokeRect(50,130,150,100);
+        </script>
     </body>
-    <script type="text/javascript" src="exercice29.js"></script>
 
 </html>

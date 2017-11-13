@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title> En tête de ma page </title>
+        <!--<script type="text/javascript" src="exercice31.js"></script>-->
+    </head>
+    <!-- Commentaire JSO -->
+
+  
+    <body>
+        <!-- ... -->
+        <h1>JS Canvas Géolocalisation</h1>
+        <canvas id="canvas" width="1000px" height="1000px"></canvas>
+
+        <script type="text/javascript">
+            //récupératon de l'élément canvas
+            var canvas = document.getElementById("canvas");
+            var context = canvas.getContext("2d");
+
+            // création d'une image JS
+            var monImage = new Image();
+            monImage.src = "../images/salar.jpg";
+
+            monImage.onload = function() 
+            {
+                for (var x = 0, y = 0; x < 500 && y < 375; x+=50, y+=37) {
+                    context.drawImage(monImage, x, y, 100,100);
+                }
+                
+            }
+
+        </script>
+    </body>
+
+</html>

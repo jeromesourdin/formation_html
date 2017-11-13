@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title> En tête de ma page </title>
+        <!--<script type="text/javascript" src="exercice31.js"></script>-->
+    </head>
+    <!-- Commentaire JSO -->
+
+  
+    <body>
+        <!-- ... -->
+        <h1>JS Canvas</h1>
+        <canvas id="canvas" width="1000px" height="1000px"></canvas>
+
+        <script type="text/javascript">
+            //récupératon de l'élément canvas
+            var canvas = document.getElementById("canvas");
+            var context = canvas.getContext("2d");
+            
+            context.beginPath();
+            for (var x=0.5; x < 500; x+= 10) {
+                context.moveTo(x,0);
+                context.lineTo(x,375);
+            }
+            for (var y=0.5; y < 375; y+= 10) {
+                context.moveTo(0,y);
+                context.lineTo(500,y);
+            }
+             
+            context.strokeStyle = "#eee";
+            context.stroke();
+
+            context.beginPath();
+
+            context.font = "bold 12px sans-serif";
+            context.fillText("x", 248, 43);
+            context.fillText("y", 57, 165);
+
+            //X
+            context.moveTo(0,40);
+            context.lineTo(240,40);
+            context.moveTo(260,40);
+            context.lineTo(500,40);
+            context.moveTo(495,35)
+            context.lineTo(500,40);
+            context.moveTo(495,45)
+            context.lineTo(500,40);
+
+            //Y
+            context.moveTo(60,0);
+            context.lineTo(60,150);
+            context.moveTo(60,170);
+            context.lineTo(60,375);
+            context.moveTo(55,370);
+            context.lineTo(60,375);
+            context.moveTo(65,370);
+            context.lineTo(60,375);
+
+            context.font = "bold 12px sans-serif";
+            context.fillText("(0,0)", 5, 15); 
+
+            context.font = "bold 12px sans-serif";
+            context.fillText("(500,375)", 440, 370);   
+
+            context.strokeStyle = "#000";
+            context.stroke();
+
+            //rond vide rouge
+            context.beginPath();
+            context.arc(250,180,50,0,2*Math.PI);
+            context.strokeStyle = "#F00";
+            var gradient= context.createLinearGradient(0,0,0,255);
+            gradient.addColorStop(0,"#FA0");
+            gradient.addColorStop(1,"white");
+            context.fillStyle = gradient;
+            context.fill();
+            context.stroke();
+
+            //rond plein orange
+ 
+
+           // //gauche
+            context.beginPath();
+            //var gradient2= context.createRadialGradient(5,5,50,10,10,50);
+            //gradient2.addColorStop(0,"black");
+            //gradient2.addColorStop(1,"white");
+            context.arc(230,160,8,0,2*Math.PI);
+            context.strokeStyle = "#F00";
+            //context.fillStyle = gradient2;
+            context.stroke();
+            context.fill();
+            //droite
+ //           context.beginPath();
+ //           context.arc(270,160,10,0,2*Math.PI);
+ //           context.strokeStyle = "#F00";
+ //           context.fillStyle = gradient2;
+ //           context.stroke();
+ //           context.fill();
+            //bas
+            context.beginPath();
+            context.moveTo(220,200);
+            context.bezierCurveTo(220,220,280,220,280,200);
+            context.stroke();
+
+        </script>
+    </body>
+
+</html>
