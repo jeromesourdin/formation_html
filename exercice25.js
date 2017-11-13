@@ -17,14 +17,14 @@ var jerome = {"enfants":["Margot","Jonas"]};
 jerome.nouvelEnfant = function(prenomNouvelEnfant)
 {
 	this.enfants.push(prenomNouvelEnfant);
-}
+};
 
 jerome.listEnfants = function()
 {
 	for (var i = 0; this.enfants.length > i; i++) {
 		console.log(this.enfants[i]);
 	}
-}
+};
 
 jerome.nouvelEnfant("Thomas");
 jerome.listEnfants();
