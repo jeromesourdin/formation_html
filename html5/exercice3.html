@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
     
     <head>
@@ -16,24 +16,21 @@
         <label>Nom : </label><input type="text" id="nom" /><br/>
         <label>Pr&eacute;nom : </label><input type="text" id="prenom" /><br/>
         <button id="bouton" onclick="envoiNomPrenom()">Envoyer</button><br/>
-
-        <table id="tableau">
-            <thead>
-            <tr>
-                <td>Nom</td>
-                <td>Prenom</td>
-            </tr>
-            </thead>
-            <tbody id="tbody">
-                
-            </tbody>
-        </table>
+        <div id="tableau"></div>
 
 
         <script type="text/javascript">
             function envoiNomPrenom()
             {
-                var utilisateur = {}
+                var utilisateur = {};
+                if (localStorage["utilisateurs"]) 
+                {
+                    utilisateur.id = JSON.parse(localStorage["utilisateurs"]).length; +1;
+                }
+                else
+                {
+                    utilisateur.id =0;
+                }
                 utilisateur.nom = document.querySelector("#nom").value;
                 utilisateur.prenom = document.querySelector("#prenom").value;
                 
@@ -60,13 +57,41 @@
 
             function affichageListe()
             {
-                listeUtilisateurs = JSON.parse(localStorage["utilisateurs"]);
-                console.log(listeUtilisateurs);
-                //document.querySelector("#tbody")
+                var listeUtilisateurs = JSON.parse(localStorage["utilisateurs"]);
+                var monTableau = "";
+                if (listeUtilisateurs.length > 0)
+                {
+                    var monTableau = "<table><thead><th>Nom</th><th>Prénom</th><th></th></thead>";
+                
+                    for (var i = 0; i < listeUtilisateurs.length; i++)
+                    {
+                        monTableau+="<tr><td>"+ listeUtilisateurs[i]["nom"] +"</td><td>"+ listeUtilisateurs[i]["prenom"] +"</td><td><button id='supprime' onclick='supprimeNomPrenom("+listeUtilisateurs[i]["id"]+")'>Supprime</button></td></tr>";
+                    }
+                    monTableau+="</table>";
+                    //var Tableau =  document.querySelector("#tableau");
+                }
+                document.getElementById('tableau').innerHTML = monTableau;
             }
 
-//            delete localStorage["compteurVisite"] ;
-//            console.log(localStorage["compteurVisite"]);
+            function supprimeNomPrenom(id)
+            {
+                var listeUtilisateurs = JSON.parse(localStorage["utilisateurs"]);
+                var nouvelListe = [];
+                for (var i = 0; i < listeUtilisateurs.length; i++) 
+                {
+                    if (listeUtilisateurs[i].id != id) 
+                    {
+                        nouvelListe.push(listeUtilisateurs[i]);
+                    }
+                }
+                localStorage["utilisateurs"] = JSON.stringify(nouvelListe);
+
+                if (localStorage["utilisateurs"]) {affichageListe();}
+            }
+
+            if (localStorage["utilisateurs"]) {affichageListe();}
+//            delete localStorage["utilisateurs"] ;
+//            console.log(localStorage["utilisateurs"]);
 
         </script>
     </body>
