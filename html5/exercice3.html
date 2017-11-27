@@ -22,21 +22,14 @@
         <script type="text/javascript">
             function envoiNomPrenom()
             {
-                var utilisateur = {};
-                if (localStorage["utilisateurs"]) 
-                {
-                    utilisateur.id = JSON.parse(localStorage["utilisateurs"]).length; +1;
-                }
-                else
-                {
-                    utilisateur.id =0;
-                }
-                utilisateur.nom = document.querySelector("#nom").value;
-                utilisateur.prenom = document.querySelector("#prenom").value;
+                var user = {};
+
+                user.nom = document.querySelector("#nom").value;
+                user.prenom = document.querySelector("#prenom").value;
                 
                 //console.log(utilisateur.nom);
 
-                stockageLocalWeb(utilisateur);
+                stockageLocalWeb(user);
                 affichageListe();
 
                 document.querySelector("#nom").value = document.querySelector("#prenom").value = "";
@@ -48,10 +41,11 @@
                 if (localStorage["utilisateurs"] != null)
                 {
                     listeUtilisateurs = JSON.parse(localStorage["utilisateurs"]);
-                    //console.log(listeUtilisateurs);
                 }
+
+                utilisateur.id = listeUtilisateurs.length+1;
                 listeUtilisateurs.push(utilisateur);
-                //console.log(listeUtilisateurs);
+
                 localStorage["utilisateurs"] = JSON.stringify(listeUtilisateurs);
             }
 
@@ -61,11 +55,16 @@
                 var monTableau = "";
                 if (listeUtilisateurs.length > 0)
                 {
-                    var monTableau = "<table><thead><th>Nom</th><th>Prénom</th><th></th></thead>";
+                    var monTableau = "<table><thead><th>Nom</th><th>Prénom</th><th>Supprimer</th><th>Editer</th></thead>";
                 
                     for (var i = 0; i < listeUtilisateurs.length; i++)
                     {
-                        monTableau+="<tr><td>"+ listeUtilisateurs[i]["nom"] +"</td><td>"+ listeUtilisateurs[i]["prenom"] +"</td><td><button id='supprime' onclick='supprimeNomPrenom("+listeUtilisateurs[i]["id"]+")'>Supprime</button></td></tr>";
+                        monTableau+="<tr><td>"+ 
+                        			listeUtilisateurs[i]["nom"] +"</td><td>"+ 
+                        			listeUtilisateurs[i]["prenom"] +"</td><td>"+
+                        			"<button id='supprime' onclick='supprimeNomPrenom("+listeUtilisateurs[i]["id"]+")'>Supprime</button></td><td>"+
+                        			"<button id='supprime' onclick='editNomPrenom("+listeUtilisateurs[i]["id"]+")'>Editer</button></td>"+
+                        			"</tr>";
                     }
                     monTableau+="</table>";
                     //var Tableau =  document.querySelector("#tableau");
@@ -73,20 +72,32 @@
                 document.getElementById('tableau').innerHTML = monTableau;
             }
 
-            function supprimeNomPrenom(id)
+            function supprimeNomPrenom(idUser)
             {
                 var listeUtilisateurs = JSON.parse(localStorage["utilisateurs"]);
-                var nouvelListe = [];
                 for (var i = 0; i < listeUtilisateurs.length; i++) 
                 {
-                    if (listeUtilisateurs[i].id != id) 
+                    if (listeUtilisateurs[i].id === idUser) 
                     {
-                        nouvelListe.push(listeUtilisateurs[i]);
+                       delete listeUtilisateurs[i];
                     }
                 }
-                localStorage["utilisateurs"] = JSON.stringify(nouvelListe);
+                localStorage["utilisateurs"] = JSON.stringify(listeUtilisateurs.filter(function(i){return i != null}));
 
                 if (localStorage["utilisateurs"]) {affichageListe();}
+            }
+
+            function editNomPrenom(idUser)
+            {
+                var listeUtilisateurs = JSON.parse(localStorage["utilisateurs"]);
+                for (var i = 0; i < listeUtilisateurs.length; i++) 
+                {
+                    if (listeUtilisateurs[i].id === idUser) 
+                    {
+                        document.querySelector("#nom").value = listeUtilisateurs[i].nom;
+                        document.querySelector("#prenom").value = listeUtilisateurs[i].prenom;
+                    }
+                }
             }
 
             if (localStorage["utilisateurs"]) {affichageListe();}

@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title> En tête de ma page </title>
+        <!--<script type="text/javascript" src="exercice31.js"></script>-->
+    </head>
+    <!-- Commentaire JSO -->
+
+  
+    <body>
+        <!-- ... -->
+        <h1>WebStorage</h1>
+
+        <p id="visite">&nbsp;</p>
+        <label>Nom : </label><input type="text" id="nom" /><br/>
+        <label>Pr&eacute;nom : </label><input type="text" id="prenom" /><br/>
+        <button id="bouton" onclick="envoiNomPrenom()">Envoyer</button><br/>
+
+        <table id="tableau">
+            <thead>
+            <tr>
+                <td>Nom</td>
+                <td>Prenom</td>
+            </tr>
+            </thead>
+            <tbody id="tbody">
+                
+            </tbody>
+        </table>
+
+
+        <script type="text/javascript">
+            function envoiNomPrenom()
+            {
+                var utilisateur = {}
+                utilisateur.nom = document.querySelector("#nom").value;
+                utilisateur.prenom = document.querySelector("#prenom").value;
+                
+                //console.log(utilisateur.nom);
+
+                stockageLocalWeb(utilisateur);
+                affichageListe();
+
+                document.querySelector("#nom").value = document.querySelector("#prenom").value = "";
+            }
+
+            function stockageLocalWeb(utilisateur)
+            {
+                var listeUtilisateurs = [];
+                if (localStorage["utilisateurs"] != null)
+                {
+                    listeUtilisateurs = JSON.parse(localStorage["utilisateurs"]);
+                    //console.log(listeUtilisateurs);
+                }
+                listeUtilisateurs.push(utilisateur);
+                //console.log(listeUtilisateurs);
+                localStorage["utilisateurs"] = JSON.stringify(listeUtilisateurs);
+            }
+
+            function affichageListe()
+            {
+                listeUtilisateurs = JSON.parse(localStorage["utilisateurs"]);
+                console.log(listeUtilisateurs);
+                //document.querySelector("#tbody")
+            }
+
+//            delete localStorage["compteurVisite"] ;
+//            console.log(localStorage["compteurVisite"]);
+
+        </script>
+    </body>
+
+</html>
