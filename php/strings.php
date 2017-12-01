@@ -28,3 +28,7 @@ echo "\n";
 str_replace("#nom#", "Jérôme", $msg, $cnt);
 echo "\n";
 echo $cnt;
+echo "\n";
+echo "longeur de la chaine : " . strlen($msg);
+echo "\n";
+echo "nombre de point : " . substr_count($chaine,".");

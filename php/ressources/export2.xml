@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document version="1.0">
+  <person id="1">
+    <nom>Sourdin</nom>
+    <prenom>Jérôme</prenom>
+  </person>
+  <person id="2">
+    <nom>Barré</nom>
+    <prenom>Emmanuelle</prenom>
+  </person>
+</document>

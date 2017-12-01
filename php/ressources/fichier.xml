@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document version="1.0">
+    <datetime>2017-11-29T16:14:00+02:00</datetime>
+    <person id="1">
+        <last_name>SOURDIN</last_name>
+        <first_name>Jérôme</first_name>
+    </person>
+    <person id="2">
+        <last_name>BARRE</last_name>
+        <first_name>Emmanuelle</first_name>
+    </person>
+</document>
